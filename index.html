@@ -37,21 +37,20 @@
           <input type="password" name="auth[newPass]" required>
           <input type="submit">
         </form>
-        <br>
         <form id="create-game" style="display: none;">
           <input type="submit" value="Start Game">
         </form>
-        <br>
         <form id="get-games" style="display: none;">
           <input type="submit" value="Get Games">
         </form>
-        <br>
         <form id="get-game" style="display: none;">
           <input id="id" name="auth[id]" type="text">
           <input type="submit" value="Get Game">
         </form>
 
-        <div id="game">
+        <div id="auth-display">Nothing Yet</div>
+
+        <div id="game" style="display: none;">
           <div class="row">
             <div class="box col-4" id="0" data-cell-index="0">o</div>
             <div class="box col-4" id="1" data-cell-index="1">Box 1</div>
@@ -64,13 +63,6 @@
             <div class="box col-4" id="8" data-cell-index="8">Box 8</div>
           </div>
         </div>
-
-        <div id="auth-display">Nothing Yet</div>
-  
-        <!-- <form id="game">
-
-        </form> -->
-  
       </main>
     </body>
 </html>

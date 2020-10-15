@@ -21,6 +21,7 @@ const onSignInSuccess = function (res) {
   $('#create-game').show()
   $('#get-games').show()
   $('#get-game').show()
+  $('#game').show()
 
   store.user = res.user
 }
@@ -39,9 +40,10 @@ const onSignOutSuccess = function () {
   $('#change-pass').hide()
   $('#sign-out').hide()
 
-  $('#create-game').show()
-  $('#get-games').show()
-  $('#get-game').show()
+  $('#create-game').hide()
+  $('#get-games').hide()
+  $('#get-game').hide()
+  $('#game').hide()
 }
 
 const onSignOutError = function (error) {

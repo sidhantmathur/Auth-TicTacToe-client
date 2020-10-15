@@ -85,9 +85,12 @@ const onMove = function (event) {
 
   if (content === 'o') {
     console.log('cant do that')
+  } else if (content === 'x') {
+    console.log('cant do that')
   } else {
     $(form).prop('disabled', true)
     $(form).text('x')
+    $(form).addClass('clicked')
 
     api.move(formData)
       .then(ui.onMoveSuccess)
