@@ -80,10 +80,24 @@ const onMove = function (event) {
 
   const formData = $(form).data().cellIndex
 
+  $(form).prop('disabled', true)
+
   api.move(formData)
     .then(ui.onMoveSuccess)
     .catch(ui.onMoveError)
 }
+
+// const onMove2 = function (event) {
+//   event.preventDefault()
+
+//   const form = event.target
+
+//   const formData = $(form).data().cellIndex
+
+//   api.moveO(formData)
+//     .then(ui.onMoveSuccess)
+//     .catch(ui.onMoveError)
+// }
 
 module.exports = {
   onSignUp,
@@ -93,5 +107,6 @@ module.exports = {
   onCreateGame,
   onGetGames,
   onGetGame,
-  onMove
+  onMove//,
+  //onMove2
 }

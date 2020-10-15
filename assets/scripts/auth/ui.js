@@ -82,6 +82,7 @@ const onGetGamesSuccess = function (res) {
   $('#auth-display').text('game got!' + res)
   console.log('game got!')
   console.log(res)
+  console.log(res.games)
 }
 
 const onGetGamesError = function (res) {
@@ -101,6 +102,7 @@ const onGetGameError = function (res) {
 }
 
 const onMoveSuccess = function (res) {
+  console.log(res.game.cells)
   console.log('made move')
   console.log(res)
 }
