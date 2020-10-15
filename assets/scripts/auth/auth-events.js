@@ -73,6 +73,7 @@ const onGetGame = function (event) {
     .catch(ui.onGetGameError)
 }
 
+// this function does a lot of work
 const onMove = function (event) {
   event.preventDefault()
 
@@ -80,11 +81,18 @@ const onMove = function (event) {
 
   const formData = $(form).data().cellIndex
 
-  $(form).prop('disabled', true)
+  const content = $(form).text()
 
-  api.move(formData)
-    .then(ui.onMoveSuccess)
-    .catch(ui.onMoveError)
+  if (content === 'o') {
+    console.log('cant do that')
+  } else {
+    $(form).prop('disabled', true)
+    $(form).text('x')
+
+    api.move(formData)
+      .then(ui.onMoveSuccess)
+      .catch(ui.onMoveError)
+  }
 }
 
 // const onMove2 = function (event) {
@@ -108,5 +116,5 @@ module.exports = {
   onGetGames,
   onGetGame,
   onMove//,
-  //onMove2
+  // onMove2
 }
