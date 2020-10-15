@@ -77,7 +77,8 @@ const onMove = function (event) {
   event.preventDefault()
 
   const form = event.target
-  const formData = getFormFields(form)
+
+  const formData = $(form).data().cellIndex
 
   api.move(formData)
     .then(ui.onMoveSuccess)

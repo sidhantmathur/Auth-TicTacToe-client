@@ -86,20 +86,21 @@ const getGame = function (formData) {
   })
 }
 
-const move = function () {
-  // const grid = document.querySelector('#game').indexNumber
+const move = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/games/' + '5f8887da9addbf00171e42bb',
-    method: 'POST',
+    method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    game: {
-      cells: {
-        index: '2', // grid
-        value: 'x'
-      },
-      over: false
+    data: {
+      game: {
+        cell: {
+          index: formData,
+          value: 'x'
+        },
+        over: false
+      }
     }
   })
 }
