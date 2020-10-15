@@ -22,5 +22,7 @@ $(() => {
 
   $('#get-game').on('submit', authEvents.onGetGame)
 
-  $('.box').on('click', authEvents.onMove)
+  // $('.box').on('click', authEvents.onMove)
+
+  $('.box').on('click', authEvents.turnFunction)
 })

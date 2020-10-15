@@ -88,7 +88,7 @@ const getGame = function (formData) {
 
 const move = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + '5f88b91e9addbf00171e4334',
+    url: config.apiUrl + '/games/' + '5f88cdb29addbf00171e4345',
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
@@ -107,7 +107,7 @@ const move = function (formData) {
 
 const moveO = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + '5f88b91e9addbf00171e4334',
+    url: config.apiUrl + '/games/' + '5f88cdb29addbf00171e4345',
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
