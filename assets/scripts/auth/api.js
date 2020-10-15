@@ -86,6 +86,24 @@ const getGame = function (formData) {
   })
 }
 
+const move = function () {
+  // const grid = document.querySelector('#game').indexNumber
+  return $.ajax({
+    url: config.apiUrl + '/games/' + '5f8887da9addbf00171e42bb',
+    method: 'POST',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    game: {
+      cells: {
+        index: '2', // grid
+        value: 'x'
+      },
+      over: false
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -93,5 +111,6 @@ module.exports = {
   signOut,
   createGame,
   getGames,
-  getGame
+  getGame,
+  move
 }

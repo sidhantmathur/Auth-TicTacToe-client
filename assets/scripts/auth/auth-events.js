@@ -73,6 +73,17 @@ const onGetGame = function (event) {
     .catch(ui.onGetGameError)
 }
 
+const onMove = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+
+  api.move(formData)
+    .then(ui.onMoveSuccess)
+    .catch(ui.onMoveError)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -80,5 +91,6 @@ module.exports = {
   onSignOut,
   onCreateGame,
   onGetGames,
-  onGetGame
+  onGetGame,
+  onMove
 }
