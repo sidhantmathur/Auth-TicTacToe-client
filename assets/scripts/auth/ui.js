@@ -114,6 +114,17 @@ const onMoveError = function (res) {
   console.log(res)
 }
 
+const onMoveOSuccess = function (res) {
+  console.log(res.game.cells)
+  console.log('made move')
+  console.log(res)
+}
+
+const onMoveOError = function (res) {
+  console.log('move error')
+  console.log(res)
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
@@ -130,5 +141,7 @@ module.exports = {
   onGetGameSuccess,
   onGetGameError,
   onMoveSuccess,
-  onMoveError
+  onMoveError,
+  onMoveOError,
+  onMoveOSuccess
 }

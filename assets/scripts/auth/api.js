@@ -88,7 +88,7 @@ const getGame = function (formData) {
 
 const move = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + '5f887cdb9addbf00171e42a6',
+    url: config.apiUrl + '/games/' + '5f88b91e9addbf00171e4334',
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
@@ -105,24 +105,24 @@ const move = function (formData) {
   })
 }
 
-// const moveO = function (formData) {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/' + '5f8887da9addbf00171e42bb',
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     },
-//     data: {
-//       game: {
-//         cell: {
-//           index: formData,
-//           value: 'o'
-//         },
-//         over: false
-//       }
-//     }
-//   })
-// }
+const moveO = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + '5f88b91e9addbf00171e4334',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: formData,
+          value: 'o'
+        },
+        over: false
+      }
+    }
+  })
+}
 
 module.exports = {
   signUp,
@@ -132,6 +132,6 @@ module.exports = {
   createGame,
   getGames,
   getGame,
-  move//,
-  // moveO
+  move,
+  moveO
 }

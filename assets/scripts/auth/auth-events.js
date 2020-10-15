@@ -98,17 +98,29 @@ const onMove = function (event) {
   }
 }
 
-// const onMove2 = function (event) {
-//   event.preventDefault()
+const onMoveO = function (event) {
+  event.preventDefault()
 
-//   const form = event.target
+  const form = event.target
 
-//   const formData = $(form).data().cellIndex
+  const formData = $(form).data().cellIndex
 
-//   api.moveO(formData)
-//     .then(ui.onMoveSuccess)
-//     .catch(ui.onMoveError)
-// }
+  const content = $(form).text()
+
+  if (content === 'o') {
+    console.log('cant do that')
+  } else if (content === 'x') {
+    console.log('cant do that')
+  } else {
+    $(form).prop('disabled', true)
+    $(form).text('o')
+    $(form).addClass('clicked')
+
+    api.moveO(formData)
+      .then(ui.onMoveOSuccess)
+      .catch(ui.onMoveOError)
+  }
+}
 
 module.exports = {
   onSignUp,
@@ -118,6 +130,6 @@ module.exports = {
   onCreateGame,
   onGetGames,
   onGetGame,
-  onMove//,
-  // onMove2
+  onMove,
+  onMoveO
 }

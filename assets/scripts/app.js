@@ -22,20 +22,5 @@ $(() => {
 
   $('#get-game').on('submit', authEvents.onGetGame)
 
-  $('.box').one('click', authEvents.onMove)
-
-  // $('.box').toggle(
-  //   authEvents.onMove,
-  //   authEvents.onMove2
-  // )
-
-  // $('#0').on('click', authEvents.onMove)
-  // $('#1').on('click', authEvents.onMove)
-  // $('#2').on('click', authEvents.onMove)
-  // $('#3').on('click', authEvents.onMove)
-  // $('#4').on('click', authEvents.onMove)
-  // $('#5').on('click', authEvents.onMove)
-  // $('#6').on('click', authEvents.onMove)
-  // $('#7').on('click', authEvents.onMove)
-  // $('#8').on('click', authEvents.onMove)
+  $('.box').on('click', authEvents.onMove)
 })
