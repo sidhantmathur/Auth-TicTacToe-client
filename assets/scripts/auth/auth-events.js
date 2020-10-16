@@ -130,6 +130,14 @@ function onMove2 (event) {
   }
 }
 
+// let currentPlayer = '✕'
+// const onBoxClick = (event) => {
+//   console.log('click')
+//   const box = $(event.target)
+//   box.css('background', 'transparent').text(currentPlayer)
+//   currentPlayer = currentPlayer === 'O' ? '✕' : 'O'
+// }
+
 module.exports = {
   onSignUp,
   onSignIn,

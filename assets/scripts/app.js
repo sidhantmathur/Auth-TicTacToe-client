@@ -24,5 +24,7 @@ $(() => {
 
   // $('.box').on('click', authEvents.onMove)
 
-  $('.box').on('click', authEvents.turnFunction)
+  $('.box').one('click', authEvents.turnFunction)
+
+  // $('.box').one('click', authEvents.onBoxClick)
 })
