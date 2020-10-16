@@ -8,6 +8,8 @@ const onSignUpSuccess = function (res) {
   $('#sign-up').trigger('reset')
 }
 
+// consolidate these show/hide ids with a "hidden on sign in class"
+
 const onSignInSuccess = function (res) {
   console.log(res)
   $('#auth-display').text('You Signed In ' + res.user.email)
@@ -85,6 +87,14 @@ const onGetGamesSuccess = function (res) {
   console.log('game got!')
   console.log(res)
   console.log(res.games)
+
+  const display = $('#game-display')
+
+  res.games.forEach(games => {
+    const list = document.createElement('li')
+    list.innerHTML = games.owner
+    display.append(list)
+  })
 }
 
 const onGetGamesError = function (res) {
