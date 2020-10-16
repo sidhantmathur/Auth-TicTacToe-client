@@ -109,15 +109,15 @@ const onGetGameSuccess = function (res) {
 
   // loop through array, and put x's and o's in each respective box
 
-  const display = $('#game')
-  $(display).empty()
-  for (let i = 0; i < res.game.cells.length; i++) {
-    console.log(res.game.cells[i])
-    const boxes = document.createElement('div')
-    $(boxes).addClass('box col-4')
-    $(boxes).text(res.game.cells[i])
-    $(display).append(boxes)
-  }
+  // const display = $('#game')
+  // $(display).empty()
+  // for (let i = 0; i < res.game.cells.length; i++) {
+  //   console.log(res.game.cells[i])
+  //   const boxes = document.createElement('div')
+  //   $(boxes).addClass('box col-4')
+  //   $(boxes).text(res.game.cells[i])
+  //   $(display).append(boxes)
+  // }
 }
 
 const onGetGameError = function (res) {
@@ -125,10 +125,19 @@ const onGetGameError = function (res) {
   console.log('1 create game error' + res.error)
 }
 
+
+
 const onMoveSuccess = function (res) {
   console.log(res.game.cells)
   console.log('made move')
   console.log(res)
+
+  if (res.game.__v === 8) {
+    console.log('game done')
+  // eslint-disable-next-line quotes
+  // } else if (res.game.cells === ["x", "o", "x", "", "", "", "", "", ""]) {
+  //   console.log('this means the cell format is right')
+  // }
 }
 
 const onMoveError = function (res) {
@@ -140,6 +149,13 @@ const onMoveOSuccess = function (res) {
   console.log(res.game.cells)
   console.log('made move')
   console.log(res)
+
+  if (res.game.__v === 8) {
+    console.log('game done')
+  // eslint-disable-next-line quotes
+  } else if (res.game.cells === ["x", "o", "x", "", "", "", "", "", ""]) {
+    console.log('this means the cell format is right')
+  }
 }
 
 const onMoveOError = function (res) {
