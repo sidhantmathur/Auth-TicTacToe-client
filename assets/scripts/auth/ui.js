@@ -23,7 +23,6 @@ const onSignInSuccess = function (res) {
   $('#create-game').show()
   $('#get-games').show()
   $('#get-game').show()
-  $('#game').show()
 
   store.user = res.user
 }
@@ -76,6 +75,7 @@ const onCreateGameSuccess = function (res) {
   $('#auth-display').text('game created! ...' + res)
   console.log(res)
   store.game = res.game
+  $('#game').show()
 }
 
 const onCreateGameError = function (res) {
