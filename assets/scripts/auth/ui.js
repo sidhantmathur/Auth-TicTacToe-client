@@ -74,7 +74,8 @@ const onSignInError = function (error) {
 
 const onCreateGameSuccess = function (res) {
   $('#auth-display').text('game created! ...' + res)
-  console.log('game created! ...' + res)
+  console.log(res)
+  store.game = res.game
 }
 
 const onCreateGameError = function (res) {

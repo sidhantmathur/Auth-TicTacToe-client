@@ -96,9 +96,9 @@ function onMove1 (event) {
   } else if (content === 'x') {
     console.log('cant do that')
   } else {
-    $(form).prop('disabled', true)
+    // $(form).prop('disabled', true)
     $(form).text('x')
-    $(form).addClass('clicked')
+    // $(form).addClass('clicked')
 
     api.move(formData)
       .then(ui.onMoveSuccess)
@@ -120,9 +120,9 @@ function onMove2 (event) {
   } else if (content === 'x') {
     console.log('cant do that')
   } else {
-    $(form).prop('disabled', true)
+    // $(form).prop('disabled', true)
     $(form).text('o')
-    $(form).addClass('clicked')
+    // $(form).addClass('clicked')
 
     api.moveO(formData)
       .then(ui.onMoveOSuccess)
