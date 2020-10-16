@@ -125,8 +125,6 @@ const onGetGameError = function (res) {
   console.log('1 create game error' + res.error)
 }
 
-
-
 const onMoveSuccess = function (res) {
   console.log(res.game.cells)
   console.log('made move')
@@ -137,7 +135,7 @@ const onMoveSuccess = function (res) {
   // eslint-disable-next-line quotes
   // } else if (res.game.cells === ["x", "o", "x", "", "", "", "", "", ""]) {
   //   console.log('this means the cell format is right')
-  // }
+  }
 }
 
 const onMoveError = function (res) {
@@ -150,12 +148,15 @@ const onMoveOSuccess = function (res) {
   console.log('made move')
   console.log(res)
 
-  if (res.game.__v === 8) {
-    console.log('game done')
-  // eslint-disable-next-line quotes
-  } else if (res.game.cells === ["x", "o", "x", "", "", "", "", "", ""]) {
-    console.log('this means the cell format is right')
-  }
+  const boardArr = res.game.cells[i]
+  console.log(boardArr)
+
+  // if (res.game.__v === 8) {
+  //   console.log('game done')
+  // // eslint-disable-next-line quotes
+  // } else if (res.game.cells === ["x", "o", "x", "", "", "", "", "", ""]) {
+  //   console.log('this means the cell format is right')
+  // }
 }
 
 const onMoveOError = function (res) {
