@@ -73,55 +73,6 @@ const onGetGame = function (event) {
     .catch(ui.onGetGameError)
 }
 
-// this function does a lot of work
-// const onMove = function (event) {
-//   event.preventDefault()
-
-//   const form = event.target
-
-//   const formData = $(form).data().cellIndex
-
-//   const content = $(form).text()
-
-//   if (content === 'o') {
-//     console.log('cant do that')
-//   } else if (content === 'x') {
-//     console.log('cant do that')
-//   } else {
-//     $(form).prop('disabled', true)
-//     $(form).text('x')
-//     $(form).addClass('clicked')
-
-//     api.move(formData)
-//       .then(ui.onMoveSuccess)
-//       .catch(ui.onMoveError)
-//   }
-// }
-
-// const onMoveO = function (event) {
-//   event.preventDefault()
-
-//   const form = event.target
-
-//   const formData = $(form).data().cellIndex
-
-//   const content = $(form).text()
-
-//   if (content === 'o') {
-//     console.log('cant do that')
-//   } else if (content === 'x') {
-//     console.log('cant do that')
-//   } else {
-//     $(form).prop('disabled', true)
-//     $(form).text('o')
-//     $(form).addClass('clicked')
-
-//     api.moveO(formData)
-//       .then(ui.onMoveOSuccess)
-//       .catch(ui.onMoveOError)
-//   }
-// }
-
 let turn = true
 
 const turnFunction = function (event) {
@@ -179,26 +130,6 @@ function onMove2 (event) {
   }
 }
 
-// const onGame = function (event) {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = $(form).data().cellIndex
-//   // const content = $(form).text()
-//   let turn = true
-
-//   if (turn === 0) {
-//     turn++
-//     api.move(formData)
-//       .then(ui.onMoveSuccess)
-//       .catch(ui.onMoveError)
-//   } else if (turn === 1) {
-//     turn--
-//     api.moveO(formData)
-//       .then(ui.onMoveOSuccess)
-//       .catch(ui.onMoveOError)
-//   }
-// }
-
 module.exports = {
   onSignUp,
   onSignIn,
@@ -207,8 +138,5 @@ module.exports = {
   onCreateGame,
   onGetGames,
   onGetGame,
-  // onMove,
-  // onMoveO,
-  // onGame,
   turnFunction
 }

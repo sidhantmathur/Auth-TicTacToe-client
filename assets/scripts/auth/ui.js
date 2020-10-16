@@ -83,17 +83,16 @@ const onCreateGameError = function (res) {
 }
 
 const onGetGamesSuccess = function (res) {
-  $('#auth-display').text('game got!' + res)
-  console.log('game got!')
   console.log(res)
   console.log(res.games)
 
   const display = $('#game-display')
-
+  $(display).empty()
+  // jQuery docs empty()
   res.games.forEach(games => {
     const list = document.createElement('li')
-    list.innerHTML = games.owner
-    display.append(list)
+    $(list).text(games.owner + ' ' + games.over + ' ' + games.__v)
+    $(display).append(list)
   })
 }
 
@@ -103,9 +102,9 @@ const onGetGamesError = function (res) {
 }
 
 const onGetGameSuccess = function (res) {
-  $('#auth-display').text('1 game got!' + res)
-  console.log('1 game got!')
+  $('#auth-display').text(res)
   console.log(res)
+  console.log('Got One Game')
 }
 
 const onGetGameError = function (res) {
