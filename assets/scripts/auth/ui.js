@@ -91,7 +91,7 @@ const onGetGamesSuccess = function (res) {
   // jQuery docs empty()
   res.games.forEach(games => {
     const list = document.createElement('li')
-    $(list).text(games.owner + ' ' + games.over + ' ' + games.__v)
+    $(list).text(games._id + ' ' + games.over + ' ' + games.__v)
     $(display).append(list)
   })
 }
@@ -105,6 +105,18 @@ const onGetGameSuccess = function (res) {
   $('#auth-display').text(res)
   console.log(res)
   console.log('Got One Game')
+
+  // loop through array, and put x's and o's in each respective box
+
+  const display = $('#game')
+  $(display).empty()
+  for (let i = 0; i < res.game.cells.length; i++) {
+    console.log(res.game.cells[i])
+    const boxes = document.createElement('div')
+    $(boxes).addClass('box col-4')
+    $(boxes).text(res.game.cells[i])
+    $(display).append(boxes)
+  }
 }
 
 const onGetGameError = function (res) {
