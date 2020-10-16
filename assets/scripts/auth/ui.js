@@ -72,14 +72,14 @@ const onSignInError = function (error) {
 }
 
 const onCreateGameSuccess = function (res) {
-  $('#auth-display').text('game created! ...' + res)
+  $('#auth-display').text('game created! ...')
   console.log(res)
   store.game = res.game
   $('#game').show()
 }
 
 const onCreateGameError = function (res) {
-  $('#auth-display').text('game create fail' + res)
+  $('#auth-display').text('game create fail')
   console.log('game create fail' + res)
 }
 
@@ -87,11 +87,12 @@ const onGetGamesSuccess = function (res) {
   console.log(res)
   console.log(res.games)
 
-  const display = $('#game-display')
+  const display = $('#games-list')
   $(display).empty()
   // jQuery docs empty()
   res.games.forEach(games => {
     const list = document.createElement('li')
+    $(list).addClass('list-group-item')
     $(list).text(games._id + ' ' + games.over + ' ' + games.__v)
     $(display).append(list)
   })
@@ -107,6 +108,11 @@ const onGetGameSuccess = function (res) {
   console.log(res)
   console.log('Got One Game')
 
+  const display = $('#game-list')
+  const list = document.createElement('li')
+  $(list).addClass('list-group-item')
+  $(list).text(res.game._id + ' ' + res.game.over + ' ' + res.game.__v)
+  $(display).append(list)
   // loop through array, and put x's and o's in each respective box
 
   // const display = $('#game')
@@ -147,9 +153,6 @@ const onMoveOSuccess = function (res) {
   console.log(res.game.cells)
   console.log('made move')
   console.log(res)
-
-  const boardArr = res.game.cells[i]
-  console.log(boardArr)
 
   // if (res.game.__v === 8) {
   //   console.log('game done')
