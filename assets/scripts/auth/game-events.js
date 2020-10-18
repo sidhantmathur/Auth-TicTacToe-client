@@ -1,4 +1,5 @@
 'use strict'
+
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
@@ -58,7 +59,7 @@ function onMove1 (event) {
   } else {
     // $(form).prop('disabled', true)
     $(form).text('x')
-    // $(form).addClass('clicked')
+    $(form).addClass('clicked-x')
 
     api.move(formData)
       .then(ui.onMoveSuccess)
@@ -82,7 +83,7 @@ function onMove2 (event) {
   } else {
     // $(form).prop('disabled', true)
     $(form).text('o')
-    // $(form).addClass('clicked')
+    $(form).addClass('clicked-o')
 
     api.moveO(formData)
       .then(ui.onMoveOSuccess)
