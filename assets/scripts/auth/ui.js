@@ -94,11 +94,16 @@ const onGetGamesSuccess = function (res) {
 
   const display = $('#games-list')
   $(display).empty()
+
+  const totalGames = document.createElement('li')
+  $(totalGames).addClass('list-group-item list-group-item-primary')
+  $(totalGames).text("You've played " + res.games.length + ' games in total')
+  $(display).prepend(totalGames)
   // jQuery docs empty()
   res.games.forEach(games => {
     const list = document.createElement('li')
     $(list).addClass('list-group-item')
-    $(list).text(games._id + ' ' + games.over + ' ' + games.__v)
+    $(list).text(games._id + ' ' + games.__v)
     $(display).append(list)
   })
 }
@@ -116,7 +121,7 @@ const onGetGameSuccess = function (res) {
   const display = $('#game-list')
   const list = document.createElement('li')
   $(list).addClass('list-group-item')
-  $(list).text(res.game._id + ' ' + res.game.over + ' ' + res.game.__v)
+  $(list).text(res.game._id + ' ' + res.game.__v)
   $(display).append(list)
   // loop through array, and put x's and o's in each respective box
 
