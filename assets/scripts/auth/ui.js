@@ -14,12 +14,16 @@ const onSignUpSuccess = function (res) {
 const onSignInSuccess = function (res) {
   console.log(res)
   $('#auth-display').text('You Signed In ' + res.user.email)
+  $('#welcome-user').text('Welcome ' + res.user.email)
   $('#sign-in').trigger('reset')
 
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#change-pass').show()
   $('#sign-out').show()
+
+  $('#collapse-btn-options').show()
+  $('#collapse-btn-stats').show()
 
   $('#create-game').show()
   $('#get-games').show()
@@ -35,12 +39,16 @@ const onChangePassSuccess = function () {
 
 const onSignOutSuccess = function () {
   $('#auth-display').text('You Signed Out')
+  $('#welcome-user').text('')
   $('#sign-in').trigger('reset')
 
   $('#sign-up').show()
   $('#sign-in').show()
   $('#change-pass').hide()
   $('#sign-out').hide()
+
+  $('#collapse-btn-options').hide()
+  $('#collapse-btn-stats').hide()
 
   $('#create-game').hide()
   $('#get-games').hide()
@@ -49,7 +57,7 @@ const onSignOutSuccess = function () {
 }
 
 const onSignOutError = function (error) {
-  $('#auth-display').text('Error Changing Password: ' + error.statusText + 'Status Code: ' + error.status)
+  $('#auth-display').text('Error Changing Password: ' + error.statusText + ' Status Code: ' + error.status)
   $('#sign-in').trigger('reset')
   console.log(error)
 }
@@ -148,16 +156,38 @@ const onMoveSuccess = function (res) {
 
   if (res.game.__v === 9) {
     console.log('game tied')
-    $('#endGameMes').text('Nobody Wins, Game Tied jQuery function')
+    $('#endGameMes').text('Nobody Wins, Game Tied')
     $('#gameEndModal').modal()
     $('.box').css('pointer-events', 'none')
+
+    const log = document.getElementById('tab-log')
+    const row = log.insertRow(0)
+    const cell = row.insertCell(0)
+    cell.innerHTML = 'Tie'
+    $(cell).text('Tie')
+
+    const oWin = $('#o-tie')
+    const currCount = parseInt($(oWin).html())
+    $(oWin).text(currCount + 1)
+
+    const xWin = $('#x-tie')
+    const currCount2 = parseInt($(xWin).html())
+    $(xWin).text(currCount2 + 1)
   }
 
   if (win.checkWin() === true) {
     console.log('X Won!')
-    $('#endGameMes').text('X Wins jQuery function')
+    $('#endGameMes').text('X Wins')
     $('#gameEndModal').modal()
     $('.box').css('pointer-events', 'none')
+    const log = document.getElementById('tab-log')
+    const row = log.insertRow(0)
+    const cell = row.insertCell(0)
+    cell.innerHTML = 'X'
+
+    const oWin = $('#x-win')
+    const currCount = parseInt($(oWin).html())
+    $(oWin).text(currCount + 1)
   } else {
     console.log('checked x for win')
   }
@@ -175,16 +205,39 @@ const onMoveOSuccess = function (res) {
 
   if (res.game.__v === 9) {
     console.log('game tied')
-    $('#endGameMes').text('Nobody Wins, Game Tied jQuery function')
+    $('#endGameMes').text('Nobody Wins, Game Tied')
     $('#gameEndModal').modal()
     $('.box').css('pointer-events', 'none')
+
+    const log = document.getElementById('tab-log')
+    const row = log.insertRow(0)
+    const cell = row.insertCell(0)
+    cell.innerHTML = 'Tie'
+    $(cell).text('Tie')
+
+    const oWin = $('#o-tie')
+    const currCount = parseInt($(oWin).html())
+    $(oWin).text(currCount + 1)
+
+    const xWin = $('#x-tie')
+    const currCount2 = parseInt($(xWin).html())
+    $(xWin).text(currCount2 + 1)
   }
 
   if (win.checkWin2() === true) {
     console.log('O Won!')
-    $('#endGameMes').text('O Wins jQuery function')
+    $('#endGameMes').text('O Wins')
     $('#gameEndModal').modal()
     $('.box').css('pointer-events', 'none')
+    const log = document.getElementById('tab-log')
+    const row = log.insertRow(0)
+    const cell = row.insertCell(0)
+    cell.innerHTML = 'O'
+    $(cell).text('O')
+
+    const oWin = $('#o-win')
+    const currCount = parseInt($(oWin).html())
+    $(oWin).text(currCount + 1)
   } else {
     console.log('checked o for win')
   }
