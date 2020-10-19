@@ -77,6 +77,10 @@ const onCreateGameSuccess = function (res) {
   console.log(res)
   store.game = res.game
   $('#game').show()
+  $('.box').text('')
+  $('.box').removeClass('clicked-x')
+  $('.box').removeClass('clicked-o')
+  $('.box').css('pointer-events', 'auto')
 }
 
 const onCreateGameError = function (res) {
@@ -137,15 +141,18 @@ const onMoveSuccess = function (res) {
   console.log('made move')
   console.log(res)
 
-  // if (res.game.__v === 8) {
-  //   console.log('game done')
-  // eslint-disable-next-line quotes
-  // } else if (res.game.cells === ["x", "o", "x", "", "", "", "", "", ""]) {
-  //   console.log('this means the cell format is right')
-  // }
+  if (res.game.__v === 9) {
+    console.log('game tied')
+    $('#endGameMes').text('Nobody Wins, Game Tied jQuery function')
+    $('#gameEndModal').modal()
+    $('.box').css('pointer-events', 'none')
+  }
 
   if (win.checkWin() === true) {
     console.log('X Won!')
+    $('#endGameMes').text('X Wins jQuery function')
+    $('#gameEndModal').modal()
+    $('.box').css('pointer-events', 'none')
   } else {
     console.log('checked x for win')
   }
@@ -161,15 +168,18 @@ const onMoveOSuccess = function (res) {
   console.log('made move')
   console.log(res)
 
-  // if (res.game.__v === 8) {
-  //   console.log('game done')
-  // // eslint-disable-next-line quotes
-  // } else if (res.game.cells === ["x", "o", "x", "", "", "", "", "", ""]) {
-  //   console.log('this means the cell format is right')
-  // }
+  if (res.game.__v === 9) {
+    console.log('game tied')
+    $('#endGameMes').text('Nobody Wins, Game Tied jQuery function')
+    $('#gameEndModal').modal()
+    $('.box').css('pointer-events', 'none')
+  }
 
   if (win.checkWin2() === true) {
     console.log('O Won!')
+    $('#endGameMes').text('O Wins jQuery function')
+    $('#gameEndModal').modal()
+    $('.box').css('pointer-events', 'none')
   } else {
     console.log('checked o for win')
   }

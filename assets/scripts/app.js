@@ -18,6 +18,7 @@ $(() => {
 
   // will be gameEvents
   $('#create-game').on('submit', authEvents.onCreateGame)
+  $('#play-again').on('click', authEvents.onCreateGame)
   $('#get-games').on('submit', authEvents.onGetGames)
 
   $('#get-game').on('submit', authEvents.onGetGame)
