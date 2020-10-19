@@ -26,23 +26,49 @@ for (let i = 0; i < clickX.length; i++) {
   arr3.push(xCell)
 }
 
+const success0 = arr2[0].every(function (val) {
+  return arr3.indexOf(val) !== -1
+})
+
+const success1 = arr2[1].every(function (val) {
+  return arr3.indexOf(val) !== -1
+})
+
+const success2 = arr2[2].every(function (val) {
+  return arr3.indexOf(val) !== -1
+})
+
+const success3 = arr2[3].every(function (val) {
+  return arr3.indexOf(val) !== -1
+})
+
+const success4 = arr2[4].every(function (val) {
+  return arr3.indexOf(val) !== -1
+})
+
+const success5 = arr2[5].every(function (val) {
+  return arr3.indexOf(val) !== -1
+})
+
+const success6 = arr2[6].every(function (val) {
+  return arr3.indexOf(val) !== -1
+})
+
+const success7 = arr2[7].every(function (val) {
+  return arr3.indexOf(val) !== -1
+})
+
 function winCheck () {
   if (
-    arr3 === arr2[0] || arr3 === arr2[1] || arr3 === arr2[2] ||
-    arr3 === arr2[3] || arr3 === arr2[4] || arr3 === arr2[5] ||
-    arr3 === arr2[6] || arr3 === arr2[7]
+    success0 || success1 || success2 ||
+      success3 || success4 || success5 ||
+      success6 || success7
   ) {
     return true
   } else {
     return false
   }
 }
-
-const success = arr2[0].every(function (val) {
-  return arr3.indexOf(val) !== -1
-})
-
-console.log(success)
 
 winCheck()
 
