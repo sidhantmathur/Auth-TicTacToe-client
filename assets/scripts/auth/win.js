@@ -1,5 +1,85 @@
 'use strict'
 
+const checkWin = function () {
+  const arr2 = [
+    ['0', '1', '2'],
+    ['3', '4', '5'],
+    ['6', '7', '8'],
+    ['0', '3', '6'],
+    ['1', '4', '7'],
+    ['2', '5', '8'],
+    ['0', '4', '8'],
+    ['2', '4', '6']
+  ]
+
+  const boxes = $('.box')
+  const clickX = $('.clicked-x')
+  const arr1 = []
+  const arr3 = []
+
+  for (let i = 0; i < boxes.length; i++) {
+    const boxCell = boxes[i].dataset.cellIndex
+    arr1.push(boxCell)
+  }
+
+  for (let i = 0; i < clickX.length; i++) {
+    const xCell = clickX[i].dataset.cellIndex
+    arr3.push(xCell)
+  }
+
+  // for (let i = 0; i < arr2.length; i++) {
+  //     const success = arr2[i].every(function (val) {
+  //         return arr3.indexOf(val) !== -1
+  //     })
+  // }
+
+  // function winCheck () {
+  //     for (let i = 0; i < arr2.length; i++) {
+  //         const success = arr2[i].every(function (val) {
+  //             return arr3.indexOf(val) !== -1
+  //             console.log(success);
+  //         })
+  //     }
+  // }
+
+  // winCheck()
+
+  const success0 = arr2[0].every(function (val) {
+    return arr3.indexOf(val) !== -1
+  })
+  const success1 = arr2[1].every(function (val) {
+    return arr3.indexOf(val) !== -1
+  })
+  const success2 = arr2[2].every(function (val) {
+    return arr3.indexOf(val) !== -1
+  })
+  const success3 = arr2[3].every(function (val) {
+    return arr3.indexOf(val) !== -1
+  })
+  const success4 = arr2[4].every(function (val) {
+    return arr3.indexOf(val) !== -1
+  })
+  const success5 = arr2[5].every(function (val) {
+    return arr3.indexOf(val) !== -1
+  })
+  const success6 = arr2[6].every(function (val) {
+    return arr3.indexOf(val) !== -1
+  })
+  const success7 = arr2[7].every(function (val) {
+    return arr3.indexOf(val) !== -1
+  })
+
+  if (
+    success0 || success1 || success2 ||
+        success3 || success4 || success5 ||
+        success6 || success7
+  ) {
+    return true
+  } else {
+    return false
+  }
+}
+
 const arr2 = [
   ['0', '1', '2'],
   ['3', '4', '5'],
@@ -25,6 +105,23 @@ for (let i = 0; i < clickX.length; i++) {
   const xCell = clickX[i].dataset.cellIndex
   arr3.push(xCell)
 }
+
+// for (let i = 0; i < arr2.length; i++) {
+//     const success = arr2[i].every(function (val) {
+//         return arr3.indexOf(val) !== -1
+//     })
+// }
+
+// function winCheck () {
+//     for (let i = 0; i < arr2.length; i++) {
+//         const success = arr2[i].every(function (val) {
+//             return arr3.indexOf(val) !== -1
+//             console.log(success);
+//         })
+//     }
+// }
+
+// winCheck()
 
 const success0 = arr2[0].every(function (val) {
   return arr3.indexOf(val) !== -1
@@ -141,3 +238,7 @@ winCheck()
 // Array.prototype.some()
 // Array.prototype.every()
 // https://forum.freecodecamp.org/t/tic-tac-toe-win-conditions/188792/3
+
+module.exports = {
+  checkWin
+}

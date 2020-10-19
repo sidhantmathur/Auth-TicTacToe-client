@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const win = require('./win')
 
 const onSignUpSuccess = function (res) {
   console.log(res)
@@ -141,6 +142,12 @@ const onMoveSuccess = function (res) {
   // eslint-disable-next-line quotes
   // } else if (res.game.cells === ["x", "o", "x", "", "", "", "", "", ""]) {
   //   console.log('this means the cell format is right')
+  }
+
+  if (win.checkWin() === true) {
+    console.log('X Won!')
+  } else {
+    console.log('checked for win')
   }
 }
 
