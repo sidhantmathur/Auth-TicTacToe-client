@@ -137,17 +137,17 @@ const onMoveSuccess = function (res) {
   console.log('made move')
   console.log(res)
 
-  if (res.game.__v === 8) {
-    console.log('game done')
+  // if (res.game.__v === 8) {
+  //   console.log('game done')
   // eslint-disable-next-line quotes
   // } else if (res.game.cells === ["x", "o", "x", "", "", "", "", "", ""]) {
   //   console.log('this means the cell format is right')
-  }
+  // }
 
   if (win.checkWin() === true) {
     console.log('X Won!')
   } else {
-    console.log('checked for win')
+    console.log('checked x for win')
   }
 }
 
@@ -167,6 +167,12 @@ const onMoveOSuccess = function (res) {
   // } else if (res.game.cells === ["x", "o", "x", "", "", "", "", "", ""]) {
   //   console.log('this means the cell format is right')
   // }
+
+  if (win.checkWin2() === true) {
+    console.log('O Won!')
+  } else {
+    console.log('checked o for win')
+  }
 }
 
 const onMoveOError = function (res) {
