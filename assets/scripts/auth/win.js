@@ -14,18 +14,60 @@ const arr2 = [
 const boxes = $('.box')
 const clickX = $('.clicked-x')
 const arr1 = []
+const arr3 = []
+
 for (let i = 0; i < boxes.length; i++) {
-  const stuff = boxes[i].dataset.cellIndex
-  arr1.push(stuff)
+  const boxCell = boxes[i].dataset.cellIndex
+  arr1.push(boxCell)
 }
 
-function playerWins (clickX) {
-  return arr2.some((threeInARow) => threeInARow.every(function (param) {
-    return boxes[param] === clickX
-  }))
+for (let i = 0; i < clickX.length; i++) {
+  const xCell = clickX[i].dataset.cellIndex
+  arr3.push(xCell)
 }
 
-playerWins(clickX)
+function winCheck () {
+  if (
+    arr3 === arr2[0] || arr3 === arr2[1] || arr3 === arr2[2] ||
+    arr3 === arr2[3] || arr3 === arr2[4] || arr3 === arr2[5] ||
+    arr3 === arr2[6] || arr3 === arr2[7]
+  ) {
+    return true
+  } else {
+    return false
+  }
+}
+
+const success = arr2[0].every(function (val) {
+  return arr3.indexOf(val) !== -1
+})
+
+console.log(success)
+
+winCheck()
+
+// function getWinner() {
+//   let winner = null
+//   arr2.forEach(function (combo, index) {
+//     if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) winner = board[combo[0]]
+//   })
+//   return winner ? winner : board.includes('') ? null : 'T'
+// };
+
+// getWinner()
+
+// for (let i = 0; i < boxes.length; i++) {
+//   const stuff = boxes[i].dataset.cellIndex
+//   arr1.push(stuff)
+// }
+
+// function playerWins (clickX) {
+//   return arr2.some((threeInARow) => threeInARow.every(function (param) {
+//     return boxes[param] === clickX
+//   }))
+// }
+
+// playerWins(clickX)
 
 // for (let i = 0; i < boxes.length; i++) {
 //   const stuff = boxes[i].dataset.cellIndex
