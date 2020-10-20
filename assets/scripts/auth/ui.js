@@ -102,7 +102,7 @@ const onCreateGameSuccess = function (res) {
 }
 
 const onCreateGameError = function (res) {
-  $('#auth-display-text').text('Error Starting Game: ' + res.error.statusText)
+  $('#auth-display-text').text('Error Starting Game: ' + res.statusText)
 }
 
 const onGetGamesSuccess = function (res) {
@@ -123,15 +123,27 @@ const onGetGamesSuccess = function (res) {
 }
 
 const onGetGamesError = function (res) {
-  $('#auth-display-text').text('Error Getting Games: ' + res.error.statusText)
+  $('#auth-display-text').text('Error Getting Games: ' + res.statusText)
 }
 
 const onGetGameSuccess = function (res) {
   const display = $('#game-list')
+  const predisp = $('#pre-disp')
   const list = document.createElement('li')
+
   $(list).addClass('list-group-item')
   $(list).text(res.game._id + ' ' + res.game.__v)
+
   $(display).append(list)
+
+  for (let i = 0; i < res.game.cells.length; i++) {
+    const cells = res.game.cells[i]
+    const boxPre = document.createElement('div')
+    $(boxPre).addClass('sm-box col-4')
+    $(boxPre).text(cells)
+    $(predisp).append(boxPre)
+  }
+
   // loop through array, and put x's and o's in each respective box
 
   // const display = $('#game')
@@ -145,8 +157,8 @@ const onGetGameSuccess = function (res) {
   // }
 }
 
-const onGetGameError = function (res) {
-  $('#auth-display-text').text('Get Game Error: ' + res.error.statusText)
+const onGetGameError = function (error) {
+  $('#auth-display-text').text('Get Game Error: ' + error.statusText)
 }
 
 const onMoveSuccess = function (res) {
@@ -184,7 +196,7 @@ const onMoveSuccess = function (res) {
 }
 
 const onMoveError = function (res) {
-  $('#auth-display-text').text('Move Error' + res.error.statusText)
+  $('#auth-display-text').text('Move Error' + res.statusText)
 }
 
 const onMoveOSuccess = function (res) {
@@ -223,7 +235,7 @@ const onMoveOSuccess = function (res) {
 }
 
 const onMoveOError = function (res) {
-  $('#auth-display-text').text('Move Error' + res.error.statusText)
+  $('#auth-display-text').text('Move Error' + res.statusText)
 }
 
 module.exports = {

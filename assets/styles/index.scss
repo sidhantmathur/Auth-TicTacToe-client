@@ -26,6 +26,17 @@ form {
  background-size: cover;
 }
 
+.sm-box {
+  height: 40px;
+  width: 40px;
+  color: lightskyblue;
+  border: solid 1px black;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ min-height: calc(100% / 3);
+}
+
 .box {
  border-bottom: 15px solid white;
  border-right: 15px solid white;
