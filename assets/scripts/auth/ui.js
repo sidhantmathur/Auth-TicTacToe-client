@@ -111,7 +111,7 @@ const onGetGamesSuccess = function (res) {
   res.games.forEach(games => {
     const list = document.createElement('li')
     $(list).addClass('list-group-item')
-    $(list).text(games._id + ' ' + games.__v)
+    $(list).text('ID: ' + games._id + ' # of Moves: ' + games.__v)
     $(display).append(list)
   })
 }

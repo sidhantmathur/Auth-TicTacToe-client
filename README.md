@@ -44,5 +44,5 @@ One pitfall in this kind of game includes allowing multiple selections of the sa
 - Working on making DRYer functions. 
 
 ## Wireframe
-![Mobile Wireframe](https://imgur.com/G2kyBzx)
-![Desktop Wireframe](https://imgur.com/kBX4uk9)
+[Mobile Wireframe](https://imgur.com/G2kyBzx)
+[Desktop Wireframe](https://imgur.com/kBX4uk9)
