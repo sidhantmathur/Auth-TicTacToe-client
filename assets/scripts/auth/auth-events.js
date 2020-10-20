@@ -76,6 +76,11 @@ const onGetGame = function (event) {
 let turn = true
 
 const turnFunction = function (event) {
+  // $(this).off(event)
+  event.preventDefault()
+  const form = event.target
+  $(form).css('pointer-events', 'none')
+
   turn ? onMove1(event) : onMove2(event)
   turn = !turn
 }
@@ -84,16 +89,11 @@ const turnFunction = function (event) {
 
 function onMove1 (event) {
   event.preventDefault()
-
   const form = event.target
-
   const formData = $(form).data().cellIndex
-
   const content = $(form).text()
 
-  if (content === 'o') {
-    console.log('cant do that')
-  } else if (content === 'x') {
+  if (content === 'o' || content === 'x') {
     console.log('cant do that')
   } else {
     // $(form).prop('disabled', true)
@@ -108,16 +108,11 @@ function onMove1 (event) {
 
 function onMove2 (event) {
   event.preventDefault()
-
   const form = event.target
-
   const formData = $(form).data().cellIndex
-
   const content = $(form).text()
 
-  if (content === 'o') {
-    console.log('cant do that')
-  } else if (content === 'x') {
+  if (content === 'o' || content === 'x') {
     console.log('cant do that')
   } else {
     // $(form).prop('disabled', true)
