@@ -4,16 +4,16 @@ const store = require('./../store')
 const win = require('./win')
 
 const onSignUpSuccess = function (res) {
-  console.log(res)
-  $('#auth-display').text('You Signed Up ' + res.user.email)
+  $('.alert').show()
+  $('#auth-display-text').text('You Signed Up ' + res.user.email)
   $('#sign-up').trigger('reset')
 }
 
 // consolidate these show/hide ids with a "hidden on sign in class"
 
 const onSignInSuccess = function (res) {
-  console.log(res)
-  $('#auth-display').text('You Signed In ' + res.user.email)
+  $('.alert').show()
+  $('#auth-display-text').text('Sign In Successful ' + res.user.email)
   $('#welcome-user').text('Welcome ' + res.user.email)
   $('#sign-in').trigger('reset')
 
@@ -28,17 +28,18 @@ const onSignInSuccess = function (res) {
   $('#create-game').show()
   $('#get-games').show()
   $('#get-game').show()
+  $('.card').show()
 
   store.user = res.user
 }
 
 const onChangePassSuccess = function () {
-  $('#auth-display').text('You Signed Out')
+  $('#auth-display-text').text('You Signed Out')
   $('#change-pass').trigger('reset')
 }
 
 const onSignOutSuccess = function () {
-  $('#auth-display').text('You Signed Out')
+  $('#auth-display-text').text('You Signed Out')
   $('#welcome-user').text('')
   $('#sign-in').trigger('reset')
 
@@ -54,35 +55,33 @@ const onSignOutSuccess = function () {
   $('#get-games').hide()
   $('#get-game').hide()
   $('#game').hide()
+  $('.card').hide()
 }
 
 const onSignOutError = function (error) {
-  $('#auth-display').text('Error Changing Password: ' + error.statusText + ' Status Code: ' + error.status)
+  $('#auth-display-text').text('Error Changing Password: ' + error.statusText + ' Status Code: ' + error.status)
   $('#sign-in').trigger('reset')
-  console.log(error)
 }
 
 const onChangePassError = function (error) {
-  $('#auth-display').text('Error Changing Password: ' + error.statusText + 'Status Code: ' + error.status)
+  $('#auth-display-text').text('Error Changing Password: ' + error.statusText + ' Status Code: ' + error.status)
   $('#sign-in').trigger('reset')
-  console.log(error)
 }
 
 const onSignUpError = function (error) {
-  $('#auth-display').text('Error Signing Up: ' + error.statusText + 'Status Code: ' + error.status)
+  $('.alert').show()
+  $('#auth-display-text').text('Error Signing Up: ' + error.statusText + ' Status Code: ' + error.status)
   $('#sign-in').trigger('reset')
-  console.log(error)
 }
 
 const onSignInError = function (error) {
-  $('#auth-display').text('Error Signing In: ' + error.statusText + 'Status Code: ' + error.status)
+  $('.alert').show()
+  $('#auth-display-text').text('Error Signing In: ' + error.statusText + ' Status Code: ' + error.status)
   $('#sign-in').trigger('reset')
-  console.log(error)
 }
 
 const onCreateGameSuccess = function (res) {
-  $('#auth-display').text('game created! ...')
-  console.log(res)
+  $('#auth-display-text').text('Game Started!')
   store.game = res.game
   $('#game').show()
   $('.box').text('')
@@ -92,14 +91,10 @@ const onCreateGameSuccess = function (res) {
 }
 
 const onCreateGameError = function (res) {
-  $('#auth-display').text('game create fail')
-  console.log('game create fail' + res)
+  $('#auth-display-text').text('Error Starting Game: ' + res.error.statusText)
 }
 
 const onGetGamesSuccess = function (res) {
-  console.log(res)
-  console.log(res.games)
-
   const display = $('#games-list')
   $(display).empty()
 
@@ -117,15 +112,10 @@ const onGetGamesSuccess = function (res) {
 }
 
 const onGetGamesError = function (res) {
-  $('#auth-display').text('game not got!')
-  console.log('create game error' + res.error)
+  $('#auth-display-text').text('Error Getting Games: ' + res.error.statusText)
 }
 
 const onGetGameSuccess = function (res) {
-  $('#auth-display').text(res)
-  console.log(res)
-  console.log('Got One Game')
-
   const display = $('#game-list')
   const list = document.createElement('li')
   $(list).addClass('list-group-item')
@@ -145,17 +135,11 @@ const onGetGameSuccess = function (res) {
 }
 
 const onGetGameError = function (res) {
-  $('#auth-display').text('1 game not got!')
-  console.log('1 create game error' + res.error)
+  $('#auth-display-text').text('Get Game Error: ' + res.error.statusText)
 }
 
 const onMoveSuccess = function (res) {
-  console.log(res.game.cells)
-  console.log('made move')
-  console.log(res)
-
   if (res.game.__v === 9) {
-    console.log('game tied')
     $('#endGameMes').text('Nobody Wins, Game Tied')
     $('#gameEndModal').modal()
     $('.box').css('pointer-events', 'none')
@@ -166,17 +150,14 @@ const onMoveSuccess = function (res) {
     cell.innerHTML = 'Tie'
     $(cell).text('Tie')
 
-    const oWin = $('#o-tie')
-    const currCount = parseInt($(oWin).html())
-    $(oWin).text(currCount + 1)
-
-    const xWin = $('#x-tie')
-    const currCount2 = parseInt($(xWin).html())
-    $(xWin).text(currCount2 + 1)
+    const oTie = $('#o-tie')
+    const currCount = parseInt($(oTie).html())
+    $(oTie).text(currCount + 1)
+    const xTie = $('#x-tie')
+    $(xTie).text(currCount + 1)
   }
 
   if (win.checkWin() === true) {
-    console.log('X Won!')
     $('#endGameMes').text('X Wins')
     $('#gameEndModal').modal()
     $('.box').css('pointer-events', 'none')
@@ -185,26 +166,18 @@ const onMoveSuccess = function (res) {
     const cell = row.insertCell(0)
     cell.innerHTML = 'X'
 
-    const oWin = $('#x-win')
-    const currCount = parseInt($(oWin).html())
-    $(oWin).text(currCount + 1)
-  } else {
-    console.log('checked x for win')
+    const xWin = $('#x-win')
+    const currCount = parseInt($(xWin).html())
+    $(xWin).text(currCount + 1)
   }
 }
 
 const onMoveError = function (res) {
-  console.log('move error')
-  console.log(res)
+  $('#auth-display-text').text('Move Error' + res.error.statusText)
 }
 
 const onMoveOSuccess = function (res) {
-  console.log(res.game.cells)
-  console.log('made move')
-  console.log(res)
-
   if (res.game.__v === 9) {
-    console.log('game tied')
     $('#endGameMes').text('Nobody Wins, Game Tied')
     $('#gameEndModal').modal()
     $('.box').css('pointer-events', 'none')
@@ -215,17 +188,14 @@ const onMoveOSuccess = function (res) {
     cell.innerHTML = 'Tie'
     $(cell).text('Tie')
 
-    const oWin = $('#o-tie')
-    const currCount = parseInt($(oWin).html())
-    $(oWin).text(currCount + 1)
-
-    const xWin = $('#x-tie')
-    const currCount2 = parseInt($(xWin).html())
-    $(xWin).text(currCount2 + 1)
+    const oTie = $('#o-tie')
+    const currCount = parseInt($(oTie).html())
+    $(oTie).text(currCount + 1)
+    const xTie = $('#x-tie')
+    $(xTie).text(currCount + 1)
   }
 
   if (win.checkWin2() === true) {
-    console.log('O Won!')
     $('#endGameMes').text('O Wins')
     $('#gameEndModal').modal()
     $('.box').css('pointer-events', 'none')
@@ -238,14 +208,11 @@ const onMoveOSuccess = function (res) {
     const oWin = $('#o-win')
     const currCount = parseInt($(oWin).html())
     $(oWin).text(currCount + 1)
-  } else {
-    console.log('checked o for win')
   }
 }
 
 const onMoveOError = function (res) {
-  console.log('move error')
-  console.log(res)
+  $('#auth-display-text').text('Move Error' + res.error.statusText)
 }
 
 module.exports = {

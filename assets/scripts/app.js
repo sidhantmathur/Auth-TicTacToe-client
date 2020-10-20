@@ -11,6 +11,7 @@ const authEvents = require('./auth/auth-events.js')
 // add game events later
 
 $(() => {
+  $('.alert').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-pass').on('submit', authEvents.onChangePass)

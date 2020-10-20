@@ -59,27 +59,6 @@
 
 
         <h2 id="welcome-user"></h2>
-
-        <!-- Modal -->
-      <div class="modal fade" id="gameEndModal" tabindex="-1" role="dialog" aria-labelledby="gameEndModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Game Over</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body" id="endGameMes">
-              
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" id="play-again" data-dismiss="modal">Play Again!</button>
-            </div>
-          </div>
-        </div>
-      </div>
         <form id="create-game" style="display: none;">
           <input type="submit" class="btn btn-success btn-lg" value="New Game">
         </form>
@@ -165,8 +144,31 @@
         </div>
       </div>
         <br>
-        <div id="auth-display" class="alert alert-danger">Nothing Yet</div>
+
+        <div id="auth-display" class="alert alert-warning alert-dismissible fade show" role="alert">
+          <p id="auth-display-text" style="margin: 0;"></p>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="gameEndModal" tabindex="-1" role="dialog" aria-labelledby="gameEndModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Game Over</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="endGameMes">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="play-again" data-dismiss="modal">Play Again!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+                <!-- Toast -->
+       
       </main>
     </body>
 </html>

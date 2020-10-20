@@ -94,7 +94,7 @@ function onMove1 (event) {
   const content = $(form).text()
 
   if (content === 'o' || content === 'x') {
-    console.log('cant do that')
+    $('#auth-display-text').text('Illegal Move')
   } else {
     // $(form).prop('disabled', true)
     $(form).text('x')
@@ -113,7 +113,7 @@ function onMove2 (event) {
   const content = $(form).text()
 
   if (content === 'o' || content === 'x') {
-    console.log('cant do that')
+    $('#auth-display-text').text('Illegal Move')
   } else {
     // $(form).prop('disabled', true)
     $(form).text('o')
