@@ -17,6 +17,8 @@ const checkWin = function () {
   const arr1 = []
   const arr3 = []
 
+  // const arr4 = []
+
   for (let i = 0; i < boxes.length; i++) {
     const boxCell = boxes[i].dataset.cellIndex
     arr1.push(boxCell)
@@ -29,9 +31,19 @@ const checkWin = function () {
 
   // for (let i = 0; i < arr2.length; i++) {
   //   arr2[i].every(function (val) {
-  //     return arr3.indexOf(val) !== -1
+  //     arr4.push(arr3.indexOf(val) !== -1)
+  //     console.log(arr4)
   //   })
   // }
+
+  // if (arr4.includes(true)) {
+  //   console.log(arr4)
+  //   return true
+  // } else {
+  //   return false
+  // }
+
+  // push for loop results to array, then use javascript to check array for any false/trues
 
   const success0 = arr2[0].every(function (val) {
     return arr3.indexOf(val) !== -1
@@ -57,6 +69,15 @@ const checkWin = function () {
   const success7 = arr2[7].every(function (val) {
     return arr3.indexOf(val) !== -1
   })
+
+  // console.log(success0)
+  // console.log(success1)
+  // console.log(success2)
+  // console.log(success3)
+  // console.log(success4)
+  // console.log(success5)
+  // console.log(success6)
+  // console.log(success7)
 
   if (
     success0 || success1 || success2 ||
