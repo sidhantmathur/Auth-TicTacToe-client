@@ -129,6 +129,9 @@ const onGetGamesError = function (res) {
 const onGetGameSuccess = function (res) {
   const display = $('#game-list')
   const predisp = $('#pre-disp')
+
+  $(predisp).empty()
+
   const list = document.createElement('li')
 
   $(list).addClass('list-group-item')
