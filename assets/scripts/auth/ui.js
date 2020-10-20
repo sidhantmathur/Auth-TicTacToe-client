@@ -56,6 +56,17 @@ const onSignOutSuccess = function () {
   $('#get-game').hide()
   $('#game').hide()
   $('.card').hide()
+
+  const log = document.getElementById('tab-log')
+  const oTie = $('#o-tie')
+  const xTie = $('#x-tie')
+  const oWin = $('#o-win')
+  const xWin = $('#x-win')
+  $(log).empty()
+  $(oWin).text('0')
+  $(xWin).text('0')
+  $(oTie).text('0')
+  $(xTie).text('0')
 }
 
 const onSignOutError = function (error) {
