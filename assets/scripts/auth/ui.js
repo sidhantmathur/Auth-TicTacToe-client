@@ -70,7 +70,7 @@ const onSignOutSuccess = function () {
 }
 
 const onSignOutError = function (error) {
-  $('#auth-display-text').text('Error Changing Password: ' + error.statusText + ' Status Code: ' + error.status)
+  $('#auth-display-text').text('Error Signing Out: ' + error.statusText + ' Status Code: ' + error.status)
   $('#sign-in').trigger('reset')
 }
 
