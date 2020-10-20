@@ -27,6 +27,12 @@ const checkWin = function () {
     arr3.push(xCell)
   }
 
+  // for (let i = 0; i < arr2.length; i++) {
+  //   arr2[i].every(function (val) {
+  //     return arr3.indexOf(val) !== -1
+  //   })
+  // }
+
   const success0 = arr2[0].every(function (val) {
     return arr3.indexOf(val) !== -1
   })
