@@ -60,7 +60,7 @@ const onGetGames = function (event) {
   const formData = getFormFields(form)
   api.getGames(formData)
     .then(ui.onGetGamesSuccess)
-    .catch(ui.ongetGamesError)
+    .catch(ui.onGetGamesError)
 }
 
 const onGetGame = function (event) {
