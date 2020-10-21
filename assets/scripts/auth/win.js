@@ -29,6 +29,36 @@ const checkWin = function () {
     arr3.push(xCell)
   }
 
+  // const box0 = $(boxes[0]).text()
+  // const box1 = $(boxes[1]).text()
+  // const box2 = $(boxes[2]).text()
+  // const box3 = $(boxes[3]).text()
+  // const box4 = $(boxes[4]).text()
+  // const box5 = $(boxes[5]).text()
+  // const box6 = $(boxes[6]).text()
+  // const box7 = $(boxes[7]).text()
+  // const box8 = $(boxes[8]).text()
+
+  // if (box0 === box1 === box2) {
+  //   return true
+  // } else if (box3 === box4 === box5) {
+  //   return true
+  // } else if (box6 === box7 === box8) {
+  //   return true
+  // } else if (box0 === box3 === box6) {
+  //   return true
+  // } else if (box1 === box4 === box7) {
+  //   return true
+  // } else if (box2 === box5 === box8) {
+  //   return true
+  // } else if (box0 === box4 === box8) {
+  //   return true
+  // } else if (box2 === box4 === box6) {
+  //   return true
+  // } else {
+  //   return false
+  // }
+
   // for (let i = 0; i < arr2.length; i++) {
   //   arr2[i].every(function (val) {
   //     arr4.push(arr3.indexOf(val) !== -1)
