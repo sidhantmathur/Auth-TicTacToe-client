@@ -1,6 +1,7 @@
 'use strict'
 
 const checkWin = function () {
+  // winning positions arrays within array
   const arr2 = [
     ['0', '1', '2'],
     ['3', '4', '5'],
@@ -14,7 +15,9 @@ const checkWin = function () {
 
   const boxes = $('.box')
   const clickX = $('.clicked-x')
+  // init game board cell indexes array
   const arr1 = []
+  // init clicked cell indexes array
   const arr3 = []
 
   // const arr4 = []
@@ -74,6 +77,8 @@ const checkWin = function () {
   // }
 
   // push for loop results to array, then use javascript to check array for any false/trues
+
+  // compare win conditions arrays to clicked arrays
 
   const success0 = arr2[0].every(function (val) {
     return arr3.indexOf(val) !== -1

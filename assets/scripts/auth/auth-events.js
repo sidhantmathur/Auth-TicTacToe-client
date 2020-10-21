@@ -73,6 +73,7 @@ const onGetGame = function (event) {
     .catch(ui.onGetGameError)
 }
 
+// function to switch turns between x and o
 let turn = true
 
 const turnFunction = function (event) {
@@ -87,12 +88,15 @@ const turnFunction = function (event) {
 
 // https://stackoverflow.com/a/49813591 only solution to switching that worked for me
 
+// in this case, formData is the cellIndex of the board position we clicked. Event.target is the thing we clicked.
+
 function onMove1 (event) {
   event.preventDefault()
   const form = event.target
   const formData = $(form).data().cellIndex
   const content = $(form).text()
 
+  // prevent clicks on clicked positions (though unneccesary now, may be relevant with AI player and no click event)
   if (content === 'o' || content === 'x') {
     $('#auth-display-text').text('Illegal Move')
   } else {

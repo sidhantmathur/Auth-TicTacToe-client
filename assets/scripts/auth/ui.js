@@ -109,11 +109,14 @@ const onGetGamesSuccess = function (res) {
   const display = $('#games-list')
   $(display).empty()
 
+  // create a total games element with the list group style
   const totalGames = document.createElement('li')
   $(totalGames).addClass('list-group-item list-group-item-primary')
   $(totalGames).text("You've played " + res.games.length + ' games in total')
   $(display).prepend(totalGames)
   // jQuery docs empty()
+
+  // create list of all games
   res.games.forEach(games => {
     const list = document.createElement('li')
     $(list).addClass('list-group-item')
@@ -139,6 +142,7 @@ const onGetGameSuccess = function (res) {
 
   $(display).append(list)
 
+  // loop through existing game board cells, and take their values to pass into a smaller gameboard
   for (let i = 0; i < res.game.cells.length; i++) {
     const cells = res.game.cells[i]
     const boxPre = document.createElement('div')
@@ -170,11 +174,15 @@ const onMoveSuccess = function (res) {
     $('#gameEndModal').modal()
     $('.box').css('pointer-events', 'none')
 
+    // log ties in log
+
     const log = document.getElementById('tab-log')
     const row = log.insertRow(0)
     const cell = row.insertCell(0)
     cell.innerHTML = 'Tie'
     $(cell).text('Tie')
+
+    // add 1 to tie counter on win/tie
 
     const oTie = $('#o-tie')
     const currCount = parseInt($(oTie).html())
@@ -187,11 +195,13 @@ const onMoveSuccess = function (res) {
     $('#endGameMes').text('X Wins')
     $('#gameEndModal').modal()
     $('.box').css('pointer-events', 'none')
+    // log wins in log
     const log = document.getElementById('tab-log')
     const row = log.insertRow(0)
     const cell = row.insertCell(0)
     cell.innerHTML = 'X'
 
+    // log wins in total stats; add one
     const xWin = $('#x-win')
     const currCount = parseInt($(xWin).html())
     $(xWin).text(currCount + 1)
