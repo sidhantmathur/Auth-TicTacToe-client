@@ -29,4 +29,6 @@ $(() => {
   $('.box').on('click', authEvents.turnFunction)
 
   // $('.box').one('click', authEvents.onBoxClick)
+
+  $('#ai').on('click', authEvents.ai)
 })

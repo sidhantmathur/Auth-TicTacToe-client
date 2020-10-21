@@ -129,6 +129,13 @@ function onMove2 (event) {
   }
 }
 
+function ai (event) {
+  event.preventDefault()
+  const nrand = Math.floor(Math.random() * 9)
+  const n = nrand.toString()
+  document.getElementById(n).click()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -137,5 +144,6 @@ module.exports = {
   onCreateGame,
   onGetGames,
   onGetGame,
-  turnFunction
+  turnFunction,
+  ai
 }
