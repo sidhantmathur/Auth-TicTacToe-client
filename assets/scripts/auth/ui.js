@@ -34,7 +34,7 @@ const onSignInSuccess = function (res) {
 }
 
 const onChangePassSuccess = function () {
-  $('#auth-display-text').text('You Signed Out')
+  $('#auth-display-text').text('You Changed Passwords')
   $('#change-pass').trigger('reset')
 }
 
