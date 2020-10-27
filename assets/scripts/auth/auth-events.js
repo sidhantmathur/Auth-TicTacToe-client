@@ -16,6 +16,9 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
 
+  // turn = true
+  // console.log('login inside ' + turn)
+
   const form = event.target
   const formData = getFormFields(form)
   api.signIn(formData)
@@ -43,8 +46,20 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutError)
 }
 
+let start = true
+
+let turn = true
+
 const onCreateGame = function (event) {
   event.preventDefault()
+
+  if (start === true) {
+    turn = false
+  } else if (start === false) {
+    turn = true
+  }
+  start = !start
+  // console.log(start)
 
   const form = event.target
   const formData = getFormFields(form)
@@ -72,9 +87,7 @@ const onGetGame = function (event) {
     .then(ui.onGetGameSuccess)
     .catch(ui.onGetGameError)
 }
-
 // function to switch turns between x and o
-let turn = true
 
 const turnFunction = function (event) {
   // $(this).off(event)
@@ -82,7 +95,14 @@ const turnFunction = function (event) {
   const form = event.target
   $(form).css('pointer-events', 'none')
 
-  turn ? onMove1(event) : onMove2(event)
+  // turn ? onMove1(event) : onMove2(event)
+
+  if (turn === true) {
+    onMove1(event)
+  } if (turn === false) {
+    onMove2(event)
+  }
+
   turn = !turn
 }
 
