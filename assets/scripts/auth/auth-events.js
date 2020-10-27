@@ -46,7 +46,7 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutError)
 }
 
-let start = true
+let start = false
 
 let turn = true
 
