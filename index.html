@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe Auth</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Tic Tac Toe</span>
+        <form id="sign-out" style="display: none;">
+          <input type="submit" class="btn btn-primary" value="Sign Out">
+        </form>
+      </nav>
+      <main class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <form id="sign-up">
+              <h2>Sign Up</h2>
+              <div class="form-group">
+                <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="auth[confirmPassword]" placeholder="Password Confirmation" required>
+              </div>
+              <input type="submit" class="btn btn-primary">
+            </form>
+          </div>
+          <div class="col-md-6">
+            <form id="sign-in">
+              <h2>Sign In</h2>
+              <div class="form-group">
+                <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
+              </div>
+              <input type="submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+        <div id="game" class="container" style="display: none;">
+          <div class="row h-100 board">
+            <div class="box col-4" id="0" data-cell-index="0"></div>
+            <div class="box col-4" id="1" data-cell-index="1"></div>
+            <div class="box col-4" id="2" data-cell-index="2"></div>
+            <div class="box col-4" id="3" data-cell-index="3"></div>
+            <div class="box col-4" id="4" data-cell-index="4"></div>
+            <div class="box col-4" id="5" data-cell-index="5"></div>
+            <div class="box col-4" id="6" data-cell-index="6"></div>
+            <div class="box col-4" id="7" data-cell-index="7"></div>
+            <div class="box col-4" id="8" data-cell-index="8"></div>
+          </div>
+        </div>
+
+
+        <h2 id="welcome-user"></h2>
+        <form id="create-game" style="display: none;">
+          <input type="submit" class="btn btn-success btn-lg" value="New Game">
+        </form>
+        <button id="collapse-btn-stats" class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#collapse-stats" aria-expanded="false" aria-controls="collapse-stats" style="display: none;">
+          View Game Stats
+        </button>
+      </p>
+      <div class="collapse" id="collapse-stats">
+        <div class="card card-body">
+          <div id="game-info" class="row">
+              <div class="col-sm-9">
+                <table class="table" id="totals">
+                  <thead>
+                    <tr>
+                      <th scope="col">Player Totals</th>
+                      <th scope="col">Wins</th>
+                      <th scope="col">Ties</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tab-tot">
+                    <tr>
+                      <th scope="row">X</th>
+                      <td id="x-win">0</td>
+                      <td id="x-tie">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">O</th>
+                      <td id="o-win">0</td>
+                      <td id="o-tie">0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-sm-3">
+                <table class="table" id="gamelog">
+                  <thead>
+                    <tr>
+                      <th scope="col">Winner Log</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tab-log">
+                    <tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <button id="collapse-btn-options" class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#collapse-options" aria-expanded="false" aria-controls="collapse-options" style="display: none;">
+          More Options
+        </button>
+      </p>
+      <div class="collapse" id="collapse-options">
+        <div class="card card-body">
+          <div>
+            <h2>Random Move</h2>
+            <button id="ai" class="btn btn-success">Computer Move!</button>
+          </div>
+          <br>
+          <form id="change-pass" style="display: none;">
+            <h2>Change Password</h2>
+            <div class="form-group">
+              <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
+            </div>
+            <div class="form-group">
+              <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
+            </div>
+            <input type="submit" class="btn btn-danger" value="Change Password">
+          </form>
+          <form id="get-game" style="display: none;">
+            <h2>See Board of Single Game</h2>
+            <div class="form-group">
+            <input id="id" name="auth[id]" class="form-control" placeholder="Game ID" type="text">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Get Game">
+            <div id="pre-disp" class="row" style="margin: 20px;">
+              
+            </div>
+            <ul class="list-group" id="game-list">
+            </ul>
+          </form>
+          <form id="get-games" style="display: none;">
+            <h2>See All Played Games</h2>
+            <input type="submit" class="btn btn-primary" value="Get Games">
+            <ul class="list-group" id="games-list">
+            </ul>
+          </form>
+        </div>
+      </div>
+        <br>
+
+        <div id="auth-display" class="alert alert-warning alert-dismissible fade show" role="alert">
+          <p id="auth-display-text" style="margin: 0;"></p>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="gameEndModal" tabindex="-1" role="dialog" aria-labelledby="gameEndModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Game Over</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="endGameMes">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="play-again" data-dismiss="modal">Play Again!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+                <!-- Toast -->
+       
+      </main>
+    </body>
+</html>
