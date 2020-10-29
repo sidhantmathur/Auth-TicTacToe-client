@@ -41,7 +41,10 @@ One pitfall in this kind of game includes allowing multiple selections of the sa
 ## Future Development
 
 - Want to implement theming, computer players, custom board sizes, and finishing incomplete games. 
-- Working on making DRYer functions. 
+- Working on making DRYer. 
+- Working on performance.
+- Consolidate win/move actions to single file. 
+- Test in unreliable internet environments. 
 
 ## Wireframe
 [Mobile Wireframe](https://imgur.com/G2kyBzx)
