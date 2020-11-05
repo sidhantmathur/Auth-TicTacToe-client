@@ -41,7 +41,6 @@ const onChangePassSuccess = function () {
 const onSignOutSuccess = function () {
   $('#auth-display-text').text('You Signed Out')
   $('#welcome-user').text('')
-  $('#sign-in').trigger('reset')
 
   $('#sign-up').show()
   $('#sign-in').show()
@@ -71,18 +70,17 @@ const onSignOutSuccess = function () {
 
 const onSignOutError = function (error) {
   $('#auth-display-text').text('Error Signing Out: ' + error.statusText + ' Status Code: ' + error.status)
-  $('#sign-in').trigger('reset')
 }
 
 const onChangePassError = function (error) {
   $('#auth-display-text').text('Error Changing Password: ' + error.statusText + ' Status Code: ' + error.status)
-  $('#sign-in').trigger('reset')
+  $('#change-pass').trigger('reset')
 }
 
 const onSignUpError = function (error) {
   $('.alert').show()
   $('#auth-display-text').text('Error Signing Up: ' + error.statusText + ' Status Code: ' + error.status)
-  $('#sign-in').trigger('reset')
+  $('#sign-up').trigger('reset')
 }
 
 const onSignInError = function (error) {
