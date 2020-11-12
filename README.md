@@ -4,7 +4,7 @@ Tic Tac Toe game with user authentication, a responsive game board and session s
 
 ## Important Links
 
-- [Hosted Site](https://sidhantmathur.github.io/Auth-TicTacToe-client/)
+- [Hosted Site](https://sidhantmathur.github.io/auth-tictactoe-client/)
 - [API Docs](https://git.generalassemb.ly/ga-wdi-boston/game-project-api)
 - [API](https://tic-tac-toe-api-production.herokuapp.com/)
 
