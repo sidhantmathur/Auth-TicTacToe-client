@@ -31,4 +31,7 @@ $(() => {
   // $('.box').one('click', authEvents.onBoxClick)
 
   $('#ai').on('click', authEvents.ai)
+
+  $('#sign-in-guest').on('submit', authEvents.onSignIn)
+
 })
